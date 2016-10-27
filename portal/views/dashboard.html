@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %}平台中心{% endblock %}
+
+{% block head %}
+{% parent %}
+<link rel="stylesheet" href="/assets/themes/default/admin.css">
+{% endblock %}
+
+{% block content %}
+{% parent %}
+<section id="content" class="layout-wrap">
+<ul>
+  {% for m in merchants %}
+  <li>
+  </li>
+  {% endfor %}
+</ul>
+</section>
+{% endblock %}

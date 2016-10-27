@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}HiPOS{% endblock %}</title>
+    {% block head %}
+    <link rel="stylesheet" href="/assets/themes/default/main.css">
+    <link rel="stylesheet" href="/assets/themes/default/uix.css">
+    <script src="/assets/libs/jquery-1.12.2.min.js"></script>
+    {% endblock %}
+  </head>
+  <body class="ui-mobile-viewport">
+    {% block content %}
+    <div class="layout-wrap-header">
+      <section id="header" class="layout-wrap">
+      <div id="logo">
+        <img src="/assets/images/logo.png">
+      </div>
+      <div id="profile_panel">
+        <div id="merchant_info">
+          <a href="/profile">{{merchant.name}}</a>
+        </div>
+        <div id="logout-btn">
+          <a href="/logout">安全退出</a>
+        </div>
+      </div>
+      </section>
+    </div>
+    <section id="navibar" class="layout-wrap">
+    <ul>
+      {% for ni in navis %}
+      <li{% if ni.name == current %} class="current"{% endif %}>
+      <a href="{{ni.link}}"><span>{{ni.title}}</span></a>
+      {% if not loop.last %}
+      <span class="sep">|</span>
+      {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    </section>
+    {% endblock %}
+    <section id="footer" class="layout-wrap">
+    <p>HiPOS - 2015（HiShop 旗下产品）</p>
+    </section>
+  </body>
+</html>
